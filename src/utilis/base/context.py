@@ -44,7 +44,7 @@ import jinja2
 def run(path = None, return_r = False):
     if not path and not len(sys.argv) > 1:
         print("Invalid number of arguments")
-        return 2
+        return 1
 
     path = path or sys.argv[1]
     path = os.path.abspath(path)
