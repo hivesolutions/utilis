@@ -66,7 +66,7 @@ setuptools.setup(
     },
     entry_points = {
         "console_scripts" : [
-            "context = utilis.context:run"
+            "context = utilis.base.context:run"
         ]
     },
     install_requires = [
