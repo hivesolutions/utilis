@@ -19,6 +19,9 @@
 # You should have received a copy of the GNU General Public License
 # along with Hive Utilis Tasks. If not, see <http://www.gnu.org/licenses/>.
 
+__author__ = "João Magalhães <joamag@hive.pt>"
+""" The author(s) of the module """
+
 __version__ = "1.0.0"
 """ The version of the module """
 
@@ -34,6 +37,26 @@ __copyright__ = "Copyright (c) 2008-2014 Hive Solutions Lda."
 __license__ = "GNU General Public License (GPL), Version 3"
 """ The license for the module """
 
-import base
+import os
+import sys
+import jinja2
 
-from base import *
+def run(path = None, return_r = False):
+    if not path and not len(sys.argv) > 1:
+        print("Invalid number of arguments")
+        return 2
+
+    path = path or sys.argv[1]
+    path = os.path.abspath(path)
+    path = os.path.normpath(path)
+
+    base, file = os.path.split(path)
+
+    loader = jinja2.FileSystemLoader(base)
+    environment = jinja2.Environment(loader = loader)
+    template = environment.get_template(file)
+
+    result = template.render(**os.environ)
+
+    if return_r: return result
+    else: print(result)

@@ -51,10 +51,18 @@ setuptools.setup(
     url = "http://utilis.hive.pt",
     zip_safe = False,
     packages = [
-        "utilis"
+        "utilis",
+        "utilis.base",
+        "utilis.test"
     ],
+    test_suite = "utilis.test",
     package_dir = {
         "" : os.path.normpath("src")
+    },
+    package_data = {
+        "utilis.test" : [
+            "res/*"
+        ]
     },
     entry_points = {
         "console_scripts" : [

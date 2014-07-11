@@ -19,6 +19,9 @@
 # You should have received a copy of the GNU General Public License
 # along with Hive Utilis Tasks. If not, see <http://www.gnu.org/licenses/>.
 
+__author__ = "João Magalhães <joamag@hive.pt>"
+""" The author(s) of the module """
+
 __version__ = "1.0.0"
 """ The version of the module """
 
@@ -34,6 +37,17 @@ __copyright__ = "Copyright (c) 2008-2014 Hive Solutions Lda."
 __license__ = "GNU General Public License (GPL), Version 3"
 """ The license for the module """
 
-import base
+import os
+import unittest
 
-from base import *
+import utilis
+
+class ContextTest(unittest.TestCase):
+
+    def test_simple(self):
+        file_path = os.path.realpath(__file__)
+        file_dir = os.path.dirname(file_path)
+        path = os.path.join(file_dir, "res", "simple.tpl")
+        os.environ["SIMPLE"] = "SIMPLE_VALUE"
+        result = utilis.context.run(path = path, return_r = True)
+        self.assertEqual(result, "SIMPLE_VALUE")
