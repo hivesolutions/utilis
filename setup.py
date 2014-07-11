@@ -56,6 +56,14 @@ setuptools.setup(
     package_dir = {
         "" : os.path.normpath("src")
     },
+    entry_points = {
+        "console_scripts" : [
+            "context = utils.context:run"
+        ]
+    },
+    install_requires = [
+        "jinja2"
+    ],
     classifiers = [
         "Development Status :: 3 - Alpha",
         "Topic :: Utilities",

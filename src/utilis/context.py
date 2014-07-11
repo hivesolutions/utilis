@@ -36,3 +36,25 @@ __copyright__ = "Copyright (c) 2008-2014 Hive Solutions Lda."
 
 __license__ = "GNU General Public License (GPL), Version 3"
 """ The license for the module """
+
+import os
+import sys
+import jinja2
+
+def run():
+    if not len(sys.argv) > 1:
+        print("Invalid number of arguments")
+        return 2
+
+    path = sys.argv[1]
+    path = os.path.abspath(path)
+    path = os.path.normpath(path)
+
+    base, file = os.path.split(path)
+
+    loader = jinja2.FileSystemLoader(base)
+    environment = jinja2.Environment(loader = loader)
+    template = environment.get_template(file)
+
+    result = template.render(**os.environ)
+    print(result)
