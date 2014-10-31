@@ -49,7 +49,7 @@ class ContextTest(unittest.TestCase):
         file_dir = os.path.dirname(file_path)
         path = os.path.join(file_dir, "res", "simple.tpl")
         os.environ["SIMPLE"] = "SIMPLE_VALUE"
-        result = utilis.run(path = path, return_r = True)
+        result = utilis.context.run(path = path, return_r = True)
         self.assertEqual(result, "SIMPLE_VALUE")
 
     def test_silent(self):
@@ -57,9 +57,9 @@ class ContextTest(unittest.TestCase):
         file_dir = os.path.dirname(file_path)
         path = os.path.join(file_dir, "res", "simple.tpl")
         os.environ["SIMPLE"] = "SIMPLE_VALUE"
-        result = utilis.run(path = path, return_r = False)
+        result = utilis.context.run(path = path, return_r = False)
         self.assertEqual(result, None)
 
     def test_error(self):
-        result = utilis.run(path = None, args = [])
+        result = utilis.context.run(path = None, args = [])
         self.assertEqual(result, 1)
