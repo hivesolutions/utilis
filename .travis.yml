@@ -9,5 +9,5 @@ python:
 install:
   - pip install -r requirements.txt
   - pip install coveralls
-script: coverage run --source=appier setup.py test
+script: coverage run --source=utilis setup.py test
 after_success: coveralls
