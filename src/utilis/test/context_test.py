@@ -51,3 +51,15 @@ class ContextTest(unittest.TestCase):
         os.environ["SIMPLE"] = "SIMPLE_VALUE"
         result = utilis.context.run(path = path, return_r = True)
         self.assertEqual(result, "SIMPLE_VALUE")
+
+    def test_silent(self):
+        file_path = os.path.realpath(__file__)
+        file_dir = os.path.dirname(file_path)
+        path = os.path.join(file_dir, "res", "simple.tpl")
+        os.environ["SIMPLE"] = "SIMPLE_VALUE"
+        result = utilis.context.run(path = path, return_r = False)
+        self.assertEqual(result, None)
+
+    def test_error(self):
+        result = utilis.context.run(path = None, args = [])
+        self.assertEqual(result, 1)
