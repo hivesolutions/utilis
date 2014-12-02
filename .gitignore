@@ -1,5 +1,5 @@
 *.pyc
 
-/dist/
-/build/
-/src/utilis.egg-info/
+/dist
+/build
+/src/utilis.egg-info
