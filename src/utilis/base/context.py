@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # Hive Utilis Tasks
-# Copyright (c) 2008-2020 Hive Solutions Lda.
+# Copyright (c) 2008-2025 Hive Solutions Lda.
 #
 # This file is part of Hive Utilis Tasks.
 #
@@ -22,16 +22,7 @@
 __author__ = "João Magalhães <joamag@hive.pt>"
 """ The author(s) of the module """
 
-__version__ = "1.0.0"
-""" The version of the module """
-
-__revision__ = "$LastChangedRevision$"
-""" The revision number of the module """
-
-__date__ = "$LastChangedDate$"
-""" The last change date of the module """
-
-__copyright__ = "Copyright (c) 2008-2020 Hive Solutions Lda."
+__copyright__ = "Copyright (c) 2008-2025 Hive Solutions Lda."
 """ The copyright for the module """
 
 __license__ = "Apache License, Version 2.0"
@@ -41,7 +32,8 @@ import os
 import sys
 import jinja2
 
-def run(path = None, return_r = False, args = sys.argv):
+
+def run(path=None, return_r=False, args=sys.argv):
     if not path and not len(args) > 1:
         print("Invalid number of arguments")
         return 1
@@ -53,10 +45,12 @@ def run(path = None, return_r = False, args = sys.argv):
     base, file = os.path.split(path)
 
     loader = jinja2.FileSystemLoader(base)
-    environment = jinja2.Environment(loader = loader)
+    environment = jinja2.Environment(loader=loader)
     template = environment.get_template(file)
 
     result = template.render(**os.environ)
 
-    if return_r: return result
-    else: print(result)
+    if return_r:
+        return result
+    else:
+        print(result)

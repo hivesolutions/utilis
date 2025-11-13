@@ -1,5 +1,7 @@
 *.pyc
 
+/.venv
+
 /dist
 /build
 /src/utilis.egg-info

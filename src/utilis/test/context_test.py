@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # Hive Utilis Tasks
-# Copyright (c) 2008-2020 Hive Solutions Lda.
+# Copyright (c) 2008-2025 Hive Solutions Lda.
 #
 # This file is part of Hive Utilis Tasks.
 #
@@ -22,16 +22,7 @@
 __author__ = "João Magalhães <joamag@hive.pt>"
 """ The author(s) of the module """
 
-__version__ = "1.0.0"
-""" The version of the module """
-
-__revision__ = "$LastChangedRevision$"
-""" The revision number of the module """
-
-__date__ = "$LastChangedDate$"
-""" The last change date of the module """
-
-__copyright__ = "Copyright (c) 2008-2020 Hive Solutions Lda."
+__copyright__ = "Copyright (c) 2008-2025 Hive Solutions Lda."
 """ The copyright for the module """
 
 __license__ = "Apache License, Version 2.0"
@@ -42,6 +33,7 @@ import unittest
 
 import utilis
 
+
 class ContextTest(unittest.TestCase):
 
     def test_simple(self):
@@ -49,7 +41,7 @@ class ContextTest(unittest.TestCase):
         file_dir = os.path.dirname(file_path)
         path = os.path.join(file_dir, "res", "simple.tpl")
         os.environ["SIMPLE"] = "SIMPLE_VALUE"
-        result = utilis.context.run(path = path, return_r = True)
+        result = utilis.context.run(path=path, return_r=True)
         self.assertEqual(result, "SIMPLE_VALUE")
 
     def test_silent(self):
@@ -57,9 +49,9 @@ class ContextTest(unittest.TestCase):
         file_dir = os.path.dirname(file_path)
         path = os.path.join(file_dir, "res", "simple.tpl")
         os.environ["SIMPLE"] = "SIMPLE_VALUE"
-        result = utilis.context.run(path = path, return_r = False)
+        result = utilis.context.run(path=path, return_r=False)
         self.assertEqual(result, None)
 
     def test_error(self):
-        result = utilis.context.run(path = None, args = [])
+        result = utilis.context.run(path=None, args=[])
         self.assertEqual(result, 1)

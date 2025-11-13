@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # Hive Utilis Tasks
-# Copyright (c) 2008-2020 Hive Solutions Lda.
+# Copyright (c) 2008-2025 Hive Solutions Lda.
 #
 # This file is part of Hive Utilis Tasks.
 #
@@ -22,16 +22,7 @@
 __author__ = "João Magalhães <joamag@hive.pt>"
 """ The author(s) of the module """
 
-__version__ = "1.0.0"
-""" The version of the module """
-
-__revision__ = "$LastChangedRevision$"
-""" The revision number of the module """
-
-__date__ = "$LastChangedDate$"
-""" The last change date of the module """
-
-__copyright__ = "Copyright (c) 2008-2020 Hive Solutions Lda."
+__copyright__ = "Copyright (c) 2008-2025 Hive Solutions Lda."
 """ The copyright for the module """
 
 __license__ = "Apache License, Version 2.0"
@@ -41,38 +32,22 @@ import os
 import setuptools
 
 setuptools.setup(
-    name = "utilis",
-    version = "0.1.3",
-    author = "Hive Solutions Lda.",
-    author_email = "development@hive.pt",
-    description = "Utilis Tasks",
-    license = "Apache License, Version 2.0",
-    keywords = "utilis tasks cli console terminal",
-    url = "http://utilis.hive.pt",
-    zip_safe = False,
-    packages = [
-        "utilis",
-        "utilis.base",
-        "utilis.test"
-    ],
-    test_suite = "utilis.test",
-    package_dir = {
-        "" : os.path.normpath("src")
-    },
-    package_data = {
-        "utilis.test" : [
-            "res/*"
-        ]
-    },
-    entry_points = {
-        "console_scripts" : [
-            "context = utilis.base.context:run"
-        ]
-    },
-    install_requires = [
-        "jinja2"
-    ],
-    classifiers = [
+    name="utilis",
+    version="0.1.3",
+    author="Hive Solutions Lda.",
+    author_email="development@hive.pt",
+    description="Utilis Tasks",
+    license="Apache License, Version 2.0",
+    keywords="utilis tasks cli console terminal",
+    url="http://utilis.hive.pt",
+    zip_safe=False,
+    packages=["utilis", "utilis.base", "utilis.test"],
+    test_suite="utilis.test",
+    package_dir={"": os.path.normpath("src")},
+    package_data={"utilis.test": ["res/*"]},
+    entry_points={"console_scripts": ["context = utilis.base.context:run"]},
+    install_requires=["jinja2"],
+    classifiers=[
         "Development Status :: 3 - Alpha",
         "Topic :: Utilities",
         "License :: OSI Approved :: Apache Software License",
@@ -87,6 +62,6 @@ setuptools.setup(
         "Programming Language :: Python :: 3.4",
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7"
-    ]
+        "Programming Language :: Python :: 3.7",
+    ],
 )
